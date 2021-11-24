@@ -1,26 +1,29 @@
 <app-quantic-banner></app-quantic-banner>
 
-<ul nz-menu nzMode="inline" style="width: 240px;">
-  <li nz-submenu nzOpen nzTitle="Navigation" nzIcon="mail">
-    <ul>
-      <li nz-menu-group nzTitle="Generator">
-        <ul>
-          <li nz-menu-item>
-          <a routerLink="/generator">Heroes</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-menu-group nzTitle="Description">
-        <ul>
-          <li nz-menu-item>
-            <a routerLink="/project">The project</a></li>
-          <li nz-menu-item>The goal</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
+<div class="flex-box">
+<div class="menu">
+  <ul nz-menu nzMode="inline" style="width: 240px;">
+    <li nz-submenu nzOpen nzTitle="Navigation" nzIcon="mail">
+      <ul>
+        <li nz-menu-group nzTitle="Generator">
+          <ul>
+            <li nz-menu-item>
+              <a routerLink="/generator">Heroes</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-menu-group nzTitle="Description">
+          <ul>
+            <li nz-menu-item>
+              <a routerLink="/project">The project</a></li>
+            <li nz-menu-item>The goal</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 <div class="card">
   <router-outlet></router-outlet>
+</div>
 </div>

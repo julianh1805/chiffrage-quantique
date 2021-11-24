@@ -1,5 +1,13 @@
-.card {
-  position: fixed; /* or absolute */
-  top: 30%;
-  left: 40%;
+.flex-box{
+  display: flex;
+  .menu{
+    width: 240px;
+  }
+
+  .card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
