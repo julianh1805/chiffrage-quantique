@@ -19,13 +19,13 @@ export class EntropyMeasureService {
       .reduce((sum: number, f: number) => sum - f/len * Math.log2(f/len), 0) as number;
   }
 
-  evaluate(level: number): EntropyLevel {
+  evaluate(str: string): EntropyLevel {
     return R.cond([
       [x => x >= 3.5, R.always('veryGood')],
       [x => x >= 3,   R.always('good')],
       [x => x >= 2.5, R.always('acceptable')],
       [R.T,           R.always('bad')]
-    ], level);
+    ], this.entropy(str));
   }
 
 }
