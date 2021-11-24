@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  jenkins:
+    image: workshop/quantique
+    restart: always
+    networks:
+      - web
+    ports:
+      - 80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.backend=quantique"
+      - "traefik.frontend.rule=Host:quantique.anthony-perruchas.fr"
+networks:
+  web:
+    external: true
