@@ -18,6 +18,5 @@ export class PasswordService {
   public async fetchPassword() {
     const response = await fetch('http://localhost');
     return await response.text();
-
   }
 }
