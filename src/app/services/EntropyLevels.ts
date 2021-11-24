@@ -1,1 +1,4 @@
-export type EntropyLevel =  'bad' | 'acceptable' | 'good' | 'veryGood';
+export type EntropyLevel = 'bad' 
+                         | 'acceptable' 
+                         | 'good' 
+                         | 'veryGood';

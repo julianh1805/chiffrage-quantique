@@ -9,7 +9,7 @@ export class EntropyMeasureService {
 
   constructor() { }
 
-  entropy(str: string): number {
+  private entropy(str: string): number {
     const len = str.length;
 
     const frequencies = Array.from(str)
@@ -25,7 +25,6 @@ export class EntropyMeasureService {
       [x => x >= 3,   R.always('good')],
       [x => x >= 2.5, R.always('acceptable')],
       [R.T,           R.always('bad')]
-    ], this.entropy(str));
+    ])(this.entropy(str));
   }
-
 }
