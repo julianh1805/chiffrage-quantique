@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuanticProjectComponent implements OnInit {
 
-  image: any = './assets/images/qubits.PNG';
+  imageQubit: any = './assets/images/qubits.PNG';
+  imageBlock: any = './assets/images/Blocksphere.png';
 
   constructor() { }
 

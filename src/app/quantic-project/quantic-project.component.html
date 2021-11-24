@@ -8,7 +8,7 @@
   </p>
   <span>L'image ci-dessous permet de visualiser la superposition d'un qubit sur un bit informatique</span>
   <p style="font-weight: lighter">Source : https://www.science.org.au/curious/policy-features/rethinking-cybersecurity-quantum-world</p>
-  <img>
+  <img src="{{imageQubit}}" style="width: 400px; margin-left: 300px">
 </div>
 <br>
 <div>
@@ -18,13 +18,18 @@
       A l'aide de la superposition d'un qubit sur un bit, nous sommes partis sur l'hypothèse suivante : <br>
       Si avec la superposition nous pouvons décider quel valeur pourrait avoir un bit classique, alors avec le qubit nous pouvons nous rapprocher de l'aléatoire grâce aux vecteurs propres.
     </p>
-    <p>insert image</p>
+    <span>L'image ci-dessous permet de visualiser les vecteurs propres d'un qubit</span>
+    <p style="font-weight: lighter">Source : https://www.science.org.au/curious/policy-features/rethinking-cybersecurity-quantum-world</p>
+    <img src="{{imageBlock}}" style="margin-left: 50px">
+
     <p>
       Un vecteur dans le qubit nous permettra de décider arbitrairement quelle valeur le qubit donnera au bit. Cette valeur sera le taux de probabilité qui décidera quel bit sera générer pour composer un octet de caractère. En suivant la logique suivante : <br>
       Soit B la valeur du bit, décidée sous la formule : <b> P(|0⧽ + |1⧽) = 1 où P(|0⧽) = 0.5 et P(|1⧽) = 0.5 tel que P(B = 1) = P(X/100) = B où 0 ≤ X ≤ 100</b>.
     </p>
     <p>
-      Basé sur cette formule, pour obtenir un caractère via un octet on suivra alors la formule suivante : <b>Soit C le caractère obtenu via un octet : P(C) = (n=8)∑ P(A)</b>
+      Basé sur cette formule, pour obtenir un caractère via un octet on suivra alors la formule suivante : <b>Soit C le caractère obtenu via un octet : P(C) = (n=8)∑ P(A) où P(A) suit la probabilité P(|0⧽ + |1⧽)</b> <br>
+      Cette formule est donc appliqué à un programme python en back-end de ce site pour générer un mot de passe. Ce mot de passe peut avoir la taille souhaité, cette taille indiquera combien de fois nous bouclons notre programme de génération de mot de passe sous Q#. <br>
+      Ensuite avec la partie frond-end codé sous Angular avec Typescript, nous récupérons avec un fetch la réponse de l'API après que ce dernier ai généré le mot de passe. Le but est que l'utilisateur puisse en un clic générer un mot de passe qu'il pourra utiliser pour son DSI.
     </p>
   </span>
 </div>
