@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PasswordService } from "../services/password.service";
 
 @Component({
   selector: 'app-quantic-card',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quantic-card.component.scss']
 })
 export class QuanticCardComponent implements OnInit {
-  clickMessage: 'text';
-  value = '';
 
-  constructor() { }
+  public clickMessage: 'text';
+  public value = '';
+
+  constructor(private passService: PasswordService) { }
 
   ngOnInit() {
   }
@@ -19,4 +21,8 @@ export class QuanticCardComponent implements OnInit {
   }
 
   onEnter(value: string) { this.value = value; }
+
+  public getPasswordTest() {
+    this.passService.fetchPassword().then(data => console.log(data));
+  }
 }
