@@ -1,0 +1,10 @@
+<nz-card style="width:300px;" nzTitle="Password Generator">
+  <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+    <input #input type="text" nz-input placeholder="input search text"/>
+  </nz-input-group>
+  <ng-template #suffixButton>
+    <button nz-button nzType="primary" nzSize="large" nzSearch (click)="onEnter(input.value)">Generate</button>
+  </ng-template>
+  <br>
+  <p class="showValue"> {{value}} </p>
+</nz-card>
