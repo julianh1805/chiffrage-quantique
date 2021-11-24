@@ -1,0 +1,30 @@
+<div>
+  <h2> Qu'est qu'un qubit ?</h2>
+  <span>
+    <p>En informatique quantique, un qubit ou qu-bit, est un système quantique à deux niveaux, qui représente la plus petite unité de stockage d'<b>information quantique</b>. Ces deux niveaux, |0⧽ et |1⧽ selon le formalisme de Dirac, représentent chacun un état de base du qubit sont donc l'analogue quantique du bit. Grâce à la propriété de <b>superposition quantique</b>, un qubit stocke une information différente à celle d'un bit. </p>
+  </span>
+  <p>
+    Sachant qu'un qubit possède deux états de base (vecteurs propres), basé sur l'analogie avec le bit classique. Alors qu'un bit classique est numérique et a toujours pour valeur soit 0 soit 1, l'état d'un qubit est une superposition quantique linéaire de ses deux états de base, et s'écrit comme la combinaison :<b> α ⋅ |0⧽  + β ⋅ |1⧽ </b>, où <b>α</b> et <b>β</b> sont des coefficients complexes pouvant prendre toutes les valeurs possibles à condition de respecter la relation de normalisation (qui assure que le qubit est entièrement présent) : <b>α^2 + β^2 = 1</b>.
+  </p>
+  <span>L'image ci-dessous permet de visualiser la superposition d'un qubit sur un bit informatique</span>
+  <p style="font-weight: lighter">Source : https://www.science.org.au/curious/policy-features/rethinking-cybersecurity-quantum-world</p>
+  <img>
+</div>
+<br>
+<div>
+  <h2>Comment l'informatique quantique peut contribuer à la cybersécurité ?</h2>
+  <span>
+    <p>
+      A l'aide de la superposition d'un qubit sur un bit, nous sommes partis sur l'hypothèse suivante : <br>
+      Si avec la superposition nous pouvons décider quel valeur pourrait avoir un bit classique, alors avec le qubit nous pouvons nous rapprocher de l'aléatoire grâce aux vecteurs propres.
+    </p>
+    <p>insert image</p>
+    <p>
+      Un vecteur dans le qubit nous permettra de décider arbitrairement quelle valeur le qubit donnera au bit. Cette valeur sera le taux de probabilité qui décidera quel bit sera générer pour composer un octet de caractère. En suivant la logique suivante : <br>
+      Soit B la valeur du bit, décidée sous la formule : <b> P(|0⧽ + |1⧽) = 1 où P(|0⧽) = 0.5 et P(|1⧽) = 0.5 tel que P(B = 1) = P(X/100) = B où 0 ≤ X ≤ 100</b>.
+    </p>
+    <p>
+      Basé sur cette formule, pour obtenir un caractère via un octet on suivra alors la formule suivante : <b>Soit C le caractère obtenu via un octet : P(C) = (n=8)∑ P(A)</b>
+    </p>
+  </span>
+</div>

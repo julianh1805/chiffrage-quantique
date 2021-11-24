@@ -1,0 +1,56 @@
+.header {
+  padding: 10px 0;
+
+  .hook{
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+    background: linear-gradient(91.36deg, #ECA658 0%, #F391A6 13.02%, #E188C3 25.52%, #A58DE3 37.5%, #56ABEC 49.48%, #737EB7 63.02%, #C8638C 72.92%, #DD5D57 84.38%, #DF6C51 97.92%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-animation: intro-gradient 7s infinite ease both;
+    -moz-animation: intro-gradient 7s infinite ease both;
+    animation: intro-gradient 7s infinite ease both;
+  }
+
+  @keyframes intro-gradient {
+    0% {
+      background-position:0 4%;
+    }
+    50% {
+      background-position: 100% 97%;
+    }
+    100% {
+      background-position:0 4%;
+    }
+  }
+
+  @-webkit-keyframes intro-gradient {
+    0% {
+      background-position:0 4%;
+    }
+    50% {
+      background-position: 100% 97%;
+    }
+    100% {
+      background-position:0 4%;
+    }
+  }
+
+  @-moz-keyframes intro-gradient {
+    0% {
+      background-position:0 4%;
+    }
+    50% {
+      background-position: 100% 97%;
+    }
+    100% {
+      background-position:0 4%;
+    }
+  }
+}
+
