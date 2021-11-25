@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'api:5000'
+  api: 'api.anthony-perruchas.fr'
 };
