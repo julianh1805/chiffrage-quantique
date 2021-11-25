@@ -5,7 +5,12 @@ services:
     networks:
       - web
     ports:
-      - "5000:5000"
+      - 5000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=5000"
+      - "traefik.backend=api-python"
+      - "traefik.frontend.rule=Host:api.anthony-perruchas.fr"
   web:
     image: workshop/quantique
     restart: always
@@ -18,8 +23,6 @@ services:
       - "traefik.port=80"
       - "traefik.backend=quantique"
       - "traefik.frontend.rule=Host:quantique.anthony-perruchas.fr"
-    depends_on:
-      - api
 networks:
   web:
     external: true
