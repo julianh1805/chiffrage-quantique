@@ -13,6 +13,7 @@ import en from '@angular/common/locales/en';
 import { QuanticBannerComponent } from './quantic-banner/quantic-banner.component';
 import { QuanticProjectComponent } from './quantic-project/quantic-project.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(en);
 
@@ -21,7 +22,8 @@ registerLocaleData(en);
     AppComponent,
     QuanticCardComponent,
     QuanticBannerComponent,
-    QuanticProjectComponent
+    QuanticProjectComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

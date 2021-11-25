@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import {Observable, of} from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { tap } from 'rxjs/operators';
 import { Password } from '../quantic-card/Password';
 
 @Injectable({
@@ -17,10 +16,10 @@ export class PasswordService {
   constructor(private http: HttpClient) { }
 
   public getPassword(): Observable<Password> {
-    return this.http.get<Password>(`${environment.host}/${this.passwordUrl.classic}`);
+    return this.http.get<Password>(`${environment.api}/${this.passwordUrl.classic}`);
   }
 
   public getPasswordWithCriteria(sizePass: number, nbPass: number): Observable<Password[]> {
-    return this.http.get<Password[]>(`${environment.host}/${this.passwordUrl.custom}/${sizePass}/${nbPass}`);
+    return this.http.get<Password[]>(`${environment.api}/${this.passwordUrl.custom}/${sizePass}/${nbPass}`);
   }
 }
