@@ -1,15 +1,16 @@
-<nz-card style="width:600px;" nzTitle="Password Generator">
+<nz-card style="width:600px;" nzTitle="Générateur de mots de passe">
   <button nz-button nzType="primary" nzSize="large" nzSearch (click)="generatePassword()">Generate</button>
   <br>
   <div *ngIf="password.value">
     <p class="showValue">{{ password.value }}</p>
-    <span>entropie: {{ entropyComs(password.entropy).comment }}</span>
+    <span style="font-size: 27.5px;"><span style="font-weight: bold">entropie:</span> {{ entropyComs(password.entropy).comment }}</span>
     <fa-icon [icon]="entropyComs(password.entropy).icon" 
              [ngStyle]="{ 'color': entropyComs(password.entropy).color, 'width': '50px' }"
-             class="fa-3x"></fa-icon>
+             class="fa-2x"
+             style="margin-left: 5px;"></fa-icon>
   </div>
 </nz-card>
-<nz-card style="width:600px;margin-top: 5px;" nzTitle="Password Generator with criterias">
+<nz-card style="width:600px;margin-top: 5px;" nzTitle="Génarateur de mots de passes avec critères">
   <span>caractères pour la génération du mot de passe: </span>
   <input type="number" style="width: 50px;" [(ngModel)]="sizePass">
   <br>
@@ -20,10 +21,11 @@
   <br>
   <div *ngFor="let password of customPasswords">
     <p class="showValue">{{ password.value }}</p>
-    <p>entropie: {{ entropyComs(password.entropy).comment }}</p>
+    <span style="font-size: 27.5px;"><span style="font-weight: bold">entropie:</span> {{ entropyComs(password.entropy).comment }}</span>
     <fa-icon [icon]="entropyComs(password.entropy).icon" 
              [ngStyle]="{ 'color': entropyComs(password.entropy).color, 'width': '50px' }"
-             class="fa-3x"></fa-icon>
+             class="fa-2x"
+             style="margin-left: 5px;"></fa-icon>
   </div>
   
 </nz-card>
