@@ -5,6 +5,6 @@ ENV API_URL=api
 ENV API_PORT=5000
 RUN npm install
 COPY . .
-RUN ng build --prod
+RUN ./node_modules/@angular/cli/bin/ng build --prod
 FROM nginx:1.15.8-alpine
 COPY --from=builder /usr/src/app/dist/crypto-quantique/ /usr/share/nginx/html
