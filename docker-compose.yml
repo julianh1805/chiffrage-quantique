@@ -5,7 +5,7 @@ services:
     networks:
       - web
     ports:
-      - 5000
+      - "5000:5000"
   web:
     image: workshop/quantique
     restart: always
