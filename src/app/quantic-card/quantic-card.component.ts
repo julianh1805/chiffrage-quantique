@@ -3,6 +3,7 @@ import { PasswordService } from "../services/password.service";
 import { EntropyMeasureService } from "../services/entropy-measure.service";
 import { Password } from './Password';
 import { EntropyLevel } from '../services/EntropyLevels';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-quantic-card',
@@ -10,11 +11,16 @@ import { EntropyLevel } from '../services/EntropyLevels';
   styleUrls: ['./quantic-card.component.scss']
 })
 export class QuanticCardComponent implements OnInit {
+  // faCoffee = faCoffee;
+
   public sizePass: number = 5; 
   public nbPass: number = 3;
 
-  public password: Password = '';
-  public customPasswords: Password[] = [];
+  public password = {
+    entropy: null,
+    value: ''
+  };
+  public customPasswords: Object[] = [];
 
   constructor(private passService: PasswordService,
               private entropyMeasureService: EntropyMeasureService) { }
@@ -23,22 +29,32 @@ export class QuanticCardComponent implements OnInit {
 
   generatePassword() { 
     this.passService.getPassword()
-      .subscribe(password => this.password = password);
+      .subscribe(password => {
+        this.password = {
+          entropy: this.entropy(password),
+          value: password
+        };
+      });
   }
 
   generatePasswordWithCriterias() {
     this.passService.getPasswordWithCriteria(this.sizePass, this.nbPass)
       .subscribe(customPasswords => {
-        this.customPasswords = Object.values(customPasswords);
+        this.customPasswords = Object.values(customPasswords).map(password => {
+          return {
+            entropy: this.entropy(password),
+            value: password
+          };
+        })
       });
   }
 
-  entropy(input: string) : string {
+  entropy(input: string) : EntropyLevel {
     return this.entropyMeasureService.evaluate(input);
   }
 
-  entropyComs(input: string): string {
-    switch(this.entropy(input)) {
+  entropyComs(input: EntropyLevel): string {
+    switch(input) {
       case 'bad': {
         return 'mauvais';
       }
@@ -54,5 +70,20 @@ export class QuanticCardComponent implements OnInit {
     }
   }
 
-
+  entropyIcon(input: EntropyLevel): string {
+    switch(input) {
+      case 'bad': {
+        return 'mauvais';
+      }
+      case 'acceptable': {
+        return 'acceptable'
+      }
+      case 'good': {
+        return 'bon mot de passe'
+      }
+      case 'veryGood': {
+        return 'très bon mot de passe'
+      }
+    }
+  }
 }
