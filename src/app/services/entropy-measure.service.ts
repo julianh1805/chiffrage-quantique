@@ -14,9 +14,8 @@ export class EntropyMeasureService {
 
     const frequencies = Array.from(str)
       .reduce((freq, c) => (freq[c] = (freq[c] || 0) + 1) && freq, {});
-   
     return Object.values(frequencies)
-      .reduce((sum: number, f: number) => sum - f/len * Math.log2(f/len), 0) as number;
+      .reduce((sum: number, f: number) => sum - f / len * Math.log2(f / len), 0) as number;
   }
 
   evaluate(str: string): EntropyLevel {
