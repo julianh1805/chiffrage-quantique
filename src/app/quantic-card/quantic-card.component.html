@@ -1,10 +1,25 @@
-<nz-card style="width:300px;" nzTitle="Password Generator">
-  <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
-    <input #input type="text" nz-input placeholder="input search text"/>
-  </nz-input-group>
-  <ng-template #suffixButton>
-    <button nz-button nzType="primary" nzSize="large" nzSearch (click)="onEnter(input.value)">Generate</button>
-  </ng-template>
-  <br>
-  <p class="showValue"> {{value}} </p>
-</nz-card>
+<div class="cards">
+  <nz-card nzTitle="Password Generator">
+    <button nz-button nzType="primary" nzSize="large" nzSearch (click)="generatePassword()">Generate</button>
+    <br>
+    <div *ngIf="password">
+      <p class="showValue">{{ password }}</p>
+      <p>entropie: {{ entropyComs(password) }}</p>
+    </div>
+  </nz-card>
+
+  <nz-card nzTitle="Password Generator with criterias">
+    <span>Nombre de caractères pour la génération du mot de passe: </span>
+    <input type="number" style="width: 50px;" [(ngModel)]="sizePass">
+    <br>
+    <span>Nombre de mot de passes: </span>
+    <input type="number" style="width: 50px;" [(ngModel)]="nbPass">
+    <br>
+    <button nz-button nzType="primary" nzSize="large" nzSearch (click)="generatePasswordWithCriterias()">Generate</button>
+    <br>
+    <div *ngFor="let password of customPasswords">
+      <p class="showValue">{{ password }}</p>
+      <p>entropie: {{ entropyComs(password) }}</p>
+    </div>
+  </nz-card>
+</div>

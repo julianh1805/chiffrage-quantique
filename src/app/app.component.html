@@ -1,29 +1,32 @@
-<app-quantic-banner></app-quantic-banner>
-
-<div class="flex-box">
-<div class="menu">
-  <ul nz-menu nzMode="inline" style="width: 240px;">
-    <li nz-submenu nzOpen nzTitle="Navigation" nzIcon="mail">
-      <ul>
-        <li nz-menu-group nzTitle="Generator">
+<header>
+  <app-quantic-banner></app-quantic-banner>
+</header>
+<main>
+  <div class="flex-box">
+    <div class="menu">
+      <ul nz-menu nzMode="inline" style="width: 240px;">
+        <li nzTitle="Navigation" nzIcon="mail">
           <ul>
-            <li nz-menu-item>
-              <a routerLink="/generator">Heroes</a>
+            <li nz-menu-group nzTitle="Generator">
+              <ul>
+                <li nz-menu-item [ngClass]="{'ant-menu-item-selected': this.currentRoute === '/' || this.currentRoute === '/generator'}">
+                  <a routerLink="/generator">Mot de passe</a>
+                </li>
+              </ul>
+            </li>
+            <li nz-menu-group nzTitle="Description">
+              <ul>
+                <li nz-menu-item [ngClass]="{'ant-menu-item-selected': this.currentRoute === '/project'}">
+                  <a routerLink="/project">The project</a></li>
+              </ul>
             </li>
           </ul>
         </li>
-        <li nz-menu-group nzTitle="Description">
-          <ul>
-            <li nz-menu-item>
-              <a routerLink="/project">The project</a></li>
-            <li nz-menu-item>The goal</li>
-          </ul>
-        </li>
       </ul>
-    </li>
-  </ul>
-</div>
-<div class="card">
-  <router-outlet></router-outlet>
-</div>
-</div>
+    </div>
+    <div class="card">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crypto-quantique';
-  theme = true;
+  currentRoute;
+
+  constructor(private router: Router) {
+
+    this.router.events
+      .subscribe(
+        (event: NavigationEvent) => {
+          if (event instanceof NavigationStart) {
+            this.currentRoute = event.url;
+          }
+        });
+  }
+
 }
