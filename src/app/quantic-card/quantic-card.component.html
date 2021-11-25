@@ -3,10 +3,12 @@
   <br>
   <div *ngIf="password.value">
     <p class="showValue">{{ password.value }}</p>
-    <p>entropie: {{ entropyComs(password.entropy) }}</p>
+    <span>entropie: {{ entropyComs(password.entropy).comment }}</span>
+    <fa-icon [icon]="entropyComs(password.entropy).icon" 
+             [ngStyle]="{ 'color': entropyComs(password.entropy).color, 'width': '50px' }"
+             class="fa-3x"></fa-icon>
   </div>
 </nz-card>
-<fa-icon [icon]="faCoffee"></fa-icon>
 <nz-card style="width:600px;margin-top: 5px;" nzTitle="Password Generator with criterias">
   <span>caractères pour la génération du mot de passe: </span>
   <input type="number" style="width: 50px;" [(ngModel)]="sizePass">
@@ -18,7 +20,10 @@
   <br>
   <div *ngFor="let password of customPasswords">
     <p class="showValue">{{ password.value }}</p>
-    <p>entropie: {{ entropyComs(password.entropy) }}</p>
+    <p>entropie: {{ entropyComs(password.entropy).comment }}</p>
+    <fa-icon [icon]="entropyComs(password.entropy).icon" 
+             [ngStyle]="{ 'color': entropyComs(password.entropy).color, 'width': '50px' }"
+             class="fa-3x"></fa-icon>
   </div>
   
 </nz-card>

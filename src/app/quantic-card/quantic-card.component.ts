@@ -3,7 +3,7 @@ import { PasswordService } from "../services/password.service";
 import { EntropyMeasureService } from "../services/entropy-measure.service";
 import { Password } from './Password';
 import { EntropyLevel } from '../services/EntropyLevels';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faFrown, faSmile, faSmileBeam, faLaughBeam } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-quantic-card',
@@ -11,8 +11,8 @@ import { EntropyLevel } from '../services/EntropyLevels';
   styleUrls: ['./quantic-card.component.scss']
 })
 export class QuanticCardComponent implements OnInit {
-  // faCoffee = faCoffee;
-
+  faSmile = faSmile;
+  
   public sizePass: number = 5; 
   public nbPass: number = 3;
 
@@ -53,36 +53,35 @@ export class QuanticCardComponent implements OnInit {
     return this.entropyMeasureService.evaluate(input);
   }
 
-  entropyComs(input: EntropyLevel): string {
+  entropyComs(input: EntropyLevel): Object {
     switch(input) {
       case 'bad': {
-        return 'mauvais';
+        return {
+          comment: 'mauvais',
+          icon: faFrown,
+          color: '#c0392b'
+        };
       }
       case 'acceptable': {
-        return 'acceptable'
+        return {
+          comment: 'acceptable',
+          icon: faSmile,
+          color: '#e67e22'
+        };
       }
       case 'good': {
-        return 'bon mot de passe'
+        return {
+          comment: 'bon mot de passe',
+          icon: faSmileBeam,
+          color: '#3498db'
+        };
       }
       case 'veryGood': {
-        return 'très bon mot de passe'
-      }
-    }
-  }
-
-  entropyIcon(input: EntropyLevel): string {
-    switch(input) {
-      case 'bad': {
-        return 'mauvais';
-      }
-      case 'acceptable': {
-        return 'acceptable'
-      }
-      case 'good': {
-        return 'bon mot de passe'
-      }
-      case 'veryGood': {
-        return 'très bon mot de passe'
+        return {
+          comment: 'très bon mot de passe',
+          icon: faLaughBeam,
+          color: '#2ecc71'
+        };
       }
     }
   }
