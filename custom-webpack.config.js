@@ -4,8 +4,8 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       $ENV: {
-        apiUrl: JSON.stringify(process.env.apiUrl),
-        apiPort: JSON.stringify(process.env.apiPort),
+        apiUrl: JSON.stringify(process.env.API_URL),
+        apiPort: JSON.stringify(process.env.API_PORT),
       }
     })
   ]
