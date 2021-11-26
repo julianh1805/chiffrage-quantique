@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'api'
+  api: 'https://api.anthony-perruchas.fr'
 };

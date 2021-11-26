@@ -12,35 +12,40 @@ import { faFrown, faSmile, faSmileBeam, faLaughBeam } from '@fortawesome/free-so
 })
 export class QuanticCardComponent implements OnInit {
   faSmile = faSmile;
-  
-  public sizePass: number = 5; 
-  public nbPass: number = 3;
 
+  public sizePass: number = 5;
+  public nbPass: number = 3;
   public password = {
     entropy: null,
     value: ''
   };
   public customPasswords: Object[] = [];
+  generatingPasswords = false;
+  generatingPasswordsWithC = false;
 
   constructor(private passService: PasswordService,
               private entropyMeasureService: EntropyMeasureService) { }
 
   ngOnInit() {}
 
-  generatePassword() { 
+  generatePassword() {
+    this.generatingPasswords = true;
     this.passService.getPassword()
       .subscribe(password => {
         this.password = {
           entropy: this.entropy(password),
           value: password
         };
+        this.generatingPasswords = false;
       });
   }
 
   generatePasswordWithCriterias() {
+    this.generatingPasswordsWithC = true;
     this.passService.getPasswordWithCriteria(this.sizePass, this.nbPass)
       .subscribe(customPasswords => {
         this.customPasswords = Object.values(customPasswords).map(password => {
+          this.generatingPasswordsWithC = false;
           return {
             entropy: this.entropy(password),
             value: password
