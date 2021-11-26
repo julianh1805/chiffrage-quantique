@@ -15,10 +15,11 @@ export class QuanticCardComponent implements OnInit {
 
   public sizePass: number = 5;
   public nbPass: number = 3;
-  public password = {
+  public password: PasswordInfo = {
     entropy: null,
     value: ''
   };
+  
   public customPasswords: PasswordInfo[] = [];
   generatingPasswords = false;
   generatingPasswordsWithC = false;
