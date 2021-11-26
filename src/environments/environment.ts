@@ -6,7 +6,7 @@
 
 export const environment = {
   production: false,
-  api: 'api'
+  api: 'https://api.anthony-perruchas.fr'
 };
 
 /*
