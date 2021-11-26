@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PasswordService } from "../services/password.service";
-import { EntropyMeasureService } from "../services/entropy-measure.service";
-import { Password } from './Password';
+import { PasswordService } from '../services/password.service';
+import { EntropyMeasureService } from '../services/entropy-measure.service';
+import { PasswordInfo, PasswordEntropicStyle } from './Password';
 import { EntropyLevel } from '../services/EntropyLevels';
 import { faFrown, faSmile, faSmileBeam, faLaughBeam } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,13 +13,13 @@ import { faFrown, faSmile, faSmileBeam, faLaughBeam } from '@fortawesome/free-so
 export class QuanticCardComponent implements OnInit {
   faSmile = faSmile;
 
-  public sizePass: number = 5;
-  public nbPass: number = 3;
-  public password = {
+   sizePass = 5;
+   nbPass = 3;
+   password: PasswordInfo = {
     entropy: null,
     value: ''
   };
-  public customPasswords: Object[] = [];
+   customPasswords: PasswordInfo[] = [];
   generatingPasswords = false;
   generatingPasswordsWithC = false;
 
@@ -49,17 +49,17 @@ export class QuanticCardComponent implements OnInit {
             entropy: this.entropy(password),
             value: password
           };
-        })
+        });
         this.generatingPasswordsWithC = false;
       });
   }
 
-  entropy(input: string) : EntropyLevel {
+  entropy(input: string): EntropyLevel {
     return this.entropyMeasureService.evaluate(input);
   }
 
-  entropyComs(input: EntropyLevel): Object {
-    switch(input) {
+  entropyComs(input: EntropyLevel): PasswordEntropicStyle {
+    switch (input) {
       case 'bad': {
         return {
           comment: 'mauvais',
