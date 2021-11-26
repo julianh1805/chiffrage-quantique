@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PasswordService } from "../services/password.service";
 import { EntropyMeasureService } from "../services/entropy-measure.service";
-import { Password, PasswordEntropicStyle } from './Password';
+import { PasswordInfo, Password, PasswordEntropicStyle } from './Password';
 import { EntropyLevel } from '../services/EntropyLevels';
 import { faFrown, faSmile, faSmileBeam, faLaughBeam } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,7 +19,7 @@ export class QuanticCardComponent implements OnInit {
     entropy: null,
     value: ''
   };
-  public customPasswords: PasswordEntropicStyle[] = [];
+  public customPasswords: PasswordInfo[] = [];
   generatingPasswords = false;
   generatingPasswordsWithC = false;
 
