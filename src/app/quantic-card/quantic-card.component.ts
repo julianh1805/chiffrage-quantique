@@ -45,12 +45,12 @@ export class QuanticCardComponent implements OnInit {
     this.passService.getPasswordWithCriteria(this.sizePass, this.nbPass)
       .subscribe(customPasswords => {
         this.customPasswords = Object.values(customPasswords).map(password => {
-          this.generatingPasswordsWithC = false;
           return {
             entropy: this.entropy(password),
             value: password
           };
         })
+        this.generatingPasswordsWithC = false;
       });
   }
 
