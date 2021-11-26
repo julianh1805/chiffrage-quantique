@@ -19,7 +19,7 @@ export class QuanticCardComponent implements OnInit {
     entropy: null,
     value: ''
   };
-  public customPasswords: Object[] = [];
+  public customPasswords: PasswordEntropicStyle[] = [];
   generatingPasswords = false;
   generatingPasswordsWithC = false;
 
