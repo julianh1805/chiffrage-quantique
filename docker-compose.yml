@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  api:
+    image: workshop/back-python
+    networks:
+      - web
+    ports:
+      - 5000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=5000"
+      - "traefik.backend=api-python"
+      - "traefik.frontend.rule=Host:api.anthony-perruchas.fr"
+  web:
+    image: workshop/quantique
+    restart: always
+    networks:
+      - web
+    ports:
+      - 80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.backend=quantique"
+      - "traefik.frontend.rule=Host:quantique.anthony-perruchas.fr"
+networks:
+  web:
+    external: true
